@@ -332,11 +332,21 @@ def updated() {
 	log.debug "updated called"
 }
 
-private hexToSignedInt(hexVal) {
+def hexToSignedInt(hexVal) {
 	if (!hexVal) {
 		return null
 	}
 
-	def unsignedVal = BigInteger(hexVal, 16)
+	def unsignedVal = new BigInteger(hexVal, 16)
 	unsignedVal > 32767 ? unsignedVal - 65536 : unsignedVal
+}
+
+private getManufacturerCode() {
+	if (device.getDataValue("manufacturer") == "SmartThings") {
+		return "0x110A"
+	} else if (device.getDataValue("manufacturer") == "Samjin") {
+		return "0x1241"
+	} else {
+		return "0x104E"
+	}
 }
