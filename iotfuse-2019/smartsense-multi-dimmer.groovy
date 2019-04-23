@@ -32,6 +32,11 @@ metadata {
 		capability "Switch Level" // Example map: [name: "level", value: 0] where value is 0-100
 
 		command "enrollResponse"
+
+		//////////////////////////////////////////////////
+		// TODO: update the fingerprint from the first DTH
+		fingerprint profileId: "0104", manufacturer: "Samjin", model: "multi-XXXX", deviceJoinName: "multi-XXXX"
+		//////////////////////////////////////////////////
 	}
 
 	preferences {
