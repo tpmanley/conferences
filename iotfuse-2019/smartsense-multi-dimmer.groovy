@@ -340,3 +340,13 @@ private hexToSignedInt(hexVal) {
 	def unsignedVal = BigInteger(hexVal, 16)
 	unsignedVal > 32767 ? unsignedVal - 65536 : unsignedVal
 }
+
+private getManufacturerCode() {
+	if (device.getDataValue("manufacturer") == "SmartThings") {
+		return "0x110A"
+	} else if (device.getDataValue("manufacturer") == "Samjin") {
+		return "0x1241"
+	} else {
+		return "0x104E"
+	}
+}
